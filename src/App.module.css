@@ -10,3 +10,13 @@
     align-items: flex-start; /* side bar e os posts fiquem na mesma altura*/
 
 }
+
+@media (max-width: 768px) {
+    html {
+        font-size: 87.5%;        
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}

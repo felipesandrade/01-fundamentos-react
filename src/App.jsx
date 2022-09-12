@@ -6,6 +6,37 @@ import styles from './App.module.css';
 
 import './global.css';
 
+const posts = [
+  {
+    id: 1,
+    author: {
+      avatarUrl: 'https://github.com/felipesandrade.png',
+      name: 'Felipe Andrade',
+      role: 'Back-end Developer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galera 👋'},
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da RocketSeat. O nome do projeto é DoctorCare 🚀'},
+      { type: 'link', content: 'jane.design/doctorcare' }
+    ],
+    publishedAt: new Date('2022-09-03 20:00:00'),
+  },
+  {
+    id: 2,
+    author: {
+      avatarUrl: 'https://github.com/maykbrito.png',
+      name: 'Bruno',
+      role: 'Front-end Developer'
+    },
+    content: [
+      { type: 'paragraph', content: 'Fala galera 👋'},
+      { type: 'paragraph', content: 'Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento da RocketSeat. O nome do projeto é DoctorCare 🚀'},
+      { type: 'link', content: 'jane.design/doctorcare' }
+    ],
+    publishedAt: new Date('2022-09-10 20:00:00'),
+  },
+];
+
 export function App() {
 
   return (
@@ -16,16 +47,15 @@ export function App() {
         <Sidebar />
 
         <main>
-          <Post 
-          author='Felipe Andrade'
-          content='Post 1 - Estudando React com Vite'
-
-          />
-          <Post 
-            author='Felipe Andrade'
-            content='Post 2 - Estudando React Native'
-
-          />
+         {posts.map(post => {
+           return (
+              <Post 
+                author={post.author}
+                content={post.content}
+                publishedAt={post.publishedAt}
+              />
+          )
+         })}
         </main>
       </div>
 
